@@ -1,0 +1,8 @@
+ppe4_tobat:
+    resource: "@PPE4TobatBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

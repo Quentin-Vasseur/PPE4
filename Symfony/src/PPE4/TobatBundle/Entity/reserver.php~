@@ -1,0 +1,77 @@
+<?php
+
+namespace PPE4\TobatBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * reserver
+ *
+ * @ORM\Table(name="reserver")
+ * @ORM\Entity(repositoryClass="PPE4\TobatBundle\Repository\reserverRepository")
+ */
+class reserver
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+        /**
+     * @ORM\ManyToOne(targetEntity="PPE4\TobatBundle\Entity\Client")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $client;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="PPE4\TobatBundle\Entity\Visite")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $visite;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nbPersonnes", type="integer")
+     */
+    private $nbPersonnes;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nbPersonnes
+     *
+     * @param integer $nbPersonnes
+     *
+     * @return reserver
+     */
+    public function setNbPersonnes($nbPersonnes)
+    {
+        $this->nbPersonnes = $nbPersonnes;
+
+        return $this;
+    }
+
+    /**
+     * Get nbPersonnes
+     *
+     * @return int
+     */
+    public function getNbPersonnes()
+    {
+        return $this->nbPersonnes;
+    }
+}
